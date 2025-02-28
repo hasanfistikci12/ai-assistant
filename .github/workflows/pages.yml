@@ -3,7 +3,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - main  # Sadece main branch'e yapılan push işlemlerinde çalıştır
+      - main  # ✅ Sadece main branch'e yapılan push'larda çalışacak
 
 permissions:
   contents: read
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4  # ✅ En güncel versiyon
+        uses: actions/checkout@v4  # ✅ En güncel sürüm
 
       - name: Setup Pages
         uses: actions/configure-pages@v3  # ✅ Güncellendi
@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2  # ✅ Güncellendi
         with:
           name: github-pages
-          path: ./  # ✅ Tüm repo dosyalarını içerecek şekilde ayarlandı
+          path: .  # ✅ Ana dizindeki dosyaları yükleyecek şekilde ayarlandı
 
   deploy:
     needs: build
@@ -35,4 +35,4 @@ jobs:
     steps:
       - name: Deploy GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2  # ✅ En güncel versiyon
+        uses: actions/deploy-pages@v2  # ✅ En güncel sürüm
