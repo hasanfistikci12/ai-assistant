@@ -2,7 +2,7 @@
 
 // Bu örnek butona tıklayınca Google Apps Script'e POST atar
 document.getElementById('testBtn').addEventListener('click', () => {
-  fetch("https://script.google.com/macros/s/AKfycbxUA1mnqH7kgoYr4Vq6Cg-rjIDXFoTKHoelas53ZDk6ENPqUSivlN6P54se79oREclb/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwlcFcdaAtmXfhOr6VdB5IeWAtUwDm_hmFlzwh036Zzjc6zm49S_kszIthiIvADeylX/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
