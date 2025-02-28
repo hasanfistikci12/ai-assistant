@@ -21,7 +21,7 @@ jobs:
         uses: actions/configure-pages@v3  # ✅ Güncellendi
 
       - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v2  # ✅ Güncellendi
+        uses: actions/upload-pages-artifact@v2  # ✅ Doğru sürüm
         with:
           name: github-pages
           path: .  # ✅ Ana dizindeki dosyaları yükleyecek şekilde ayarlandı
