@@ -3,7 +3,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # Main branch'taki her değişiklikte çalıştır
 
 permissions:
   contents: read
@@ -23,7 +23,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v2  # ✅ Güncellendi!
         with:
-          path: ./  # ✅ Ana dizindeki index.html dosyasını yükle
+          path: ./  # Ana dizindeki index.html ve diğer dosyaları yükler
 
   deploy:
     needs: build
