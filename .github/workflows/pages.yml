@@ -3,15 +3,15 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - main  # veya hangi branch'ı kullanıyorsan
+      - main
 
 permissions:
   contents: read
   pages: write
-  id-token: write  # ✅ Bunu ekledik!
+  id-token: write
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -21,10 +21,13 @@ jobs:
         uses: actions/configure-pages@v2
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v2  # ✅ Güncellendi!
         with:
-          name: github-pages
-          path: .  # Eğer index.html ana dizindeyse
+          path: ./  # ✅ Ana dizindeki index.html dosyasını yükle
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy GitHub Pages
         uses: actions/deploy-pages@v2
