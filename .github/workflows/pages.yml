@@ -3,7 +3,12 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - main  # Eğer başka bir branch kullanıyorsan burayı değiştir.
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
@@ -15,8 +20,8 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v2
 
-      - name: Build and Deploy
-        uses: actions/upload-pages-artifact@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2  # Güncellenmiş versiyon
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v2
