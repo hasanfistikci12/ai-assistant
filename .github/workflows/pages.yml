@@ -15,16 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4  # ✅ En güncel sürüm
+        uses: actions/checkout@v4  # ✅ Güncellenmiş sürüm
 
       - name: Setup Pages
-        uses: actions/configure-pages@v3  # ✅ Güncellendi
+        uses: actions/configure-pages@v3  # ✅ Güncellenmiş sürüm
 
       - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v2  # ✅ Doğru sürüm
+        uses: actions/upload-pages-artifact@v2  # ✅ Güncellenmiş sürüm
         with:
           name: github-pages
-          path: .  # ✅ Ana dizindeki dosyaları yükleyecek şekilde ayarlandı
+          path: .  # ✅ Root dizindeki tüm dosyaları yükle
 
   deploy:
     needs: build
@@ -35,4 +35,4 @@ jobs:
     steps:
       - name: Deploy GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2  # ✅ En güncel sürüm
+        uses: actions/deploy-pages@v2  # ✅ Güncellenmiş sürüm
