@@ -3,7 +3,7 @@ name: Deploy GitHub Pages
 on:
   push:
     branches:
-      - main  # Main branch'e her push işlemi sonrası çalıştır
+      - main  # Main branch'e her push sonrası çalıştır
 
 permissions:
   contents: read
@@ -21,8 +21,9 @@ jobs:
         uses: actions/configure-pages@v2
 
       - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v2  # ✅ Güncellendi!
+        uses: actions/upload-artifact@v4  # ✅ Güncellendi!
         with:
+          name: github-pages
           path: ./
 
   deploy:
