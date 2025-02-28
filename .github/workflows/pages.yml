@@ -5,6 +5,11 @@ on:
     branches:
       - main  # veya hangi branch'ı kullanıyorsan
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write  # ✅ Bunu ekledik!
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,10 +21,10 @@ jobs:
         uses: actions/configure-pages@v2
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4  # ✅ upload-artifact v4 kullanıyoruz
+        uses: actions/upload-artifact@v4
         with:
           name: github-pages
           path: .  # Eğer index.html ana dizindeyse
 
       - name: Deploy GitHub Pages
-        uses: actions/deploy-pages@v2  # ✅ v2 en güncel ve stabil versiyon
+        uses: actions/deploy-pages@v2
