@@ -16,9 +16,10 @@ jobs:
         uses: actions/configure-pages@v2
 
       - name: Upload Artifact
-        uses: actions/upload-pages-artifact@v4  # ✅ v4 kullanıldı
+        uses: actions/upload-artifact@v4  # ✅ upload-artifact v4 kullanıyoruz
         with:
-          path: .  # Eğer `index.html` ana dizindeyse
+          name: github-pages
+          path: .  # Eğer index.html ana dizindeyse
 
       - name: Deploy GitHub Pages
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v2  # ✅ v2 en güncel ve stabil versiyon
