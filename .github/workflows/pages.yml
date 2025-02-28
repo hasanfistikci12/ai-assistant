@@ -1,0 +1,22 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Eğer başka bir branch kullanıyorsan burayı değiştir.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+
+      - name: Build and Deploy
+        uses: actions/upload-pages-artifact@v2
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
