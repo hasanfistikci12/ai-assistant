@@ -6,20 +6,25 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: write  # İçerik yazma izni
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
+      - name: Build (Opsiyonel)
+        run: echo "Site hazır" > index.html  # Eğer build gerekmiyorsa bu satırı bırak
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
-          folder: . # Eğer index.html kökteyse "." bırak
+          branch: gh-pages  # Yayınlanacak branch
+          folder: .         # index.html buradaysa "." olmalı
