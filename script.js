@@ -1,4 +1,8 @@
-  fetch("https://script.google.com/macros/s/AKfycbxAWXFmZxjM352ZCEHL7DwQmQplbI9q7l_yUQDXH6JxeyJwN8zTtntra_draBIsf3zW/exec", {
+// Butonu seç ve event listener ekle
+document.getElementById('testBtn').addEventListener('click', () => {
+  console.log("Butona tıklandı, veri gönderiliyor..."); // Konsolda kontrol edelim
+  
+fetch("https://script.google.com/macros/s/AKfycbxAWXFmZxjM352ZCEHL7DwQmQplbI9q7l_yUQDXH6JxeyJwN8zTtntra_draBIsf3zW/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
