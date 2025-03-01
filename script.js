@@ -1,43 +1,22 @@
-// Butona tıklanınca Google Apps Script'e POST atar
+// Butonu seç ve event listener ekle
 document.getElementById('testBtn').addEventListener('click', () => {
+  console.log("Butona tıklandı, veri gönderiliyor..."); // Konsolda kontrol edelim
   
-  const input = document.getElementById('userInput').value.trim(); // Kullanıcı girdisini al
-  const statusDiv = document.getElementById('status'); // Mesaj alanını al
-
-  // Eğer giriş boşsa hata mesajı göster
-  if (!input) {
-    showMessage("Lütfen bir metin girin!", "error");
-    return;
-  }
-
-  showMessage("Veri gönderiliyor...", "info");
-
-  fetch("https://script.google.com/macros/s/AKfycbxAWXFmZxjM352ZCEHL7DwQmQplbI9q7l_yUQDXH6JxeyJwN8zTtntra_draBIsf3zW/exec", {
+fetch("https://script.google.com/macros/s/AKfycbxAWXFmZxjM352ZCEHL7DwQmQplbI9q7l_yUQDXH6JxeyJwN8zTtntra_draBIsf3zW/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      prompt: input,
-      completion: "GitHub Pages üzerinden gönderildi."
+      prompt: "GH-Pages test prompt",
+      completion: "GH-Pages test completion"
     })
   })
-  .then(response => response.json()) // JSON olarak yanıtı al
+  .then(response => response.text())
   .then(data => {
-    if (data.message) {
-      showMessage("✅ Başarıyla gönderildi: " + data.message, "success");
-    } else {
-      throw new Error(data.error || "Bilinmeyen hata!");
-    }
+    console.log("Yanıt:", data); // Google Sheets'e başarılı olup olmadığını görmek için
+    alert("Veri gönderildi!"); // Kullanıcıya bildirim verelim
   })
   .catch(err => {
-    showMessage("❌ Hata: " + err.message, "error");
+    console.error("Hata:", err);
+    alert("Veri gönderilirken hata oluştu!");
   });
 });
-
-// Ekrana mesaj yazdırma fonksiyonu
-function showMessage(message, type) {
-  const statusDiv = document.getElementById('status');
-  statusDiv.innerHTML = message;
-  statusDiv.className = type; // CSS sınıfını güncelle
-  statusDiv.style.display = "block"; // Görünür yap
-}
-
