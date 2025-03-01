@@ -1,27 +1,25 @@
-name: Deploy with JamesIves
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Ana branch (main) değişikliklerinde çalışır
+      - main
+
+permissions:
+  contents: write
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Burada bir 'build' aşamanız varsa (ör. npm run build) ekleyebilirsiniz
-      # Örneğin:
-      # - name: Install deps
-      #   run: npm install
-      # - name: Build
-      #   run: npm run build
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages         # Siteyi gh-pages branch'ine atar
-          folder: .                # index.html kök dizinde ise '.'
-          clean: true              # Yayın öncesi gh-pages branch'i temizler
+          branch: gh-pages
+          folder: . # Eğer index.html kökteyse "." bırak
