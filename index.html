@@ -3,13 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>GitHub Pages Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      text-align: center;
+    }
+    #status {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+    }
+    .success {
+      color: green;
+      background-color: #e6ffe6;
+      border: 1px solid green;
+    }
+    .error {
+      color: red;
+      background-color: #ffe6e6;
+      border: 1px solid red;
+    }
+  </style>
 </head>
 <body>
 
   <h1>GitHub Pages Test</h1>
-  <button id="testBtn">Veri Gönder</button> <!-- Butona id verdik -->
 
-  <!-- JS dosyamızı son kısımda çağırıyoruz -->
+  <p>Google Sheets'e veri göndermek için aşağıya bir metin yazın:</p>
+  <input type="text" id="userInput" placeholder="Metin girin..." />
+  <button id="testBtn">Veri Gönder</button>
+
+  <div id="status"></div> <!-- Mesajların ekrana yazdırılacağı alan -->
+
+  <!-- JS dosyamızı çağırıyoruz -->
   <script src="script.js"></script>
 
 </body>
