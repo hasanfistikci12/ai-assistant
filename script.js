@@ -38,20 +38,12 @@ document.getElementById('testBtn').addEventListener('click', () => {
       console.error("🚨 Fetch Hatası:", err.message);
       showMessage("❌ Hata: " + err.message, "error");
   });
-});
 
-// Ekrana mesaj yazdırma fonksiyonu
+}); // **Bu parantez eksik olabilir!**
+
 function showMessage(message, type) {
   const statusDiv = document.getElementById('status');
   statusDiv.innerHTML = message;
   statusDiv.className = type; // CSS sınıfını güncelle
   statusDiv.style.display = "block"; // Görünür yap
 }
-
-        throw new Error(data.error || "Bilinmeyen hata!");
-    }
-})
-.catch(err => {
-    console.error("🚨 Fetch Hatası:", err.message);
-    showMessage("❌ Hata: " + err.message, "error");
-});
