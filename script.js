@@ -39,7 +39,7 @@ document.getElementById('testBtn').addEventListener('click', () => {
       showMessage("❌ Hata: " + err.message, "error");
   });
 
-}); // **Bu parantez eksik olabilir!**
+}); // **EKSİK KAPATMA PARANTEZİ OLABİLİR!**
 
 function showMessage(message, type) {
   const statusDiv = document.getElementById('status');
