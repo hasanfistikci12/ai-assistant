@@ -12,7 +12,7 @@ document.getElementById('testBtn').addEventListener('click', () => {
 
   showMessage("Veri gönderiliyor...", "info");
 
-  fetch("https://script.google.com/macros/s/AKfycbxxOfaGymZAjql6dNN6pxMvnx0zVvCkadZSABs5X1rj8qrFE6IIv_xIxI-TcFMdvj3f/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwUBiW7SyX4Y36kVADSv2vQbzWzcRnKsFMgNuiNt0dH8Q8GErpsXMLGSPI8soINV34/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
